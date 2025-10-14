@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { CodeBlock } from '@/components/CodeBlock'
 
 const codeTanstack = `// App.tsx
 import React from 'react'
@@ -105,7 +104,9 @@ export default function Page() {
           <h1>Data Table Libraries</h1>
           <nav className="nav">
             <a href="#comparison">Comparison</a>
-            <a href="#examples">Examples</a>
+            <Link href="/mui">MUI</Link>
+            <Link href="/tanstack">TanStack</Link>
+            <Link href="/mrt">MRT</Link>
             <a href="#notes">Notes</a>
           </nav>
         </div>
@@ -242,42 +243,7 @@ export default function Page() {
           <p className="note small">Notes: Specific features can vary by version. Some advanced features in MUI Data Grid require Pro or Premium licenses. Material React Table builds on TanStack Table with MUI components.</p>
         </section>
 
-        <section id="examples" className="examples">
-          <h3>Example implementations (React)</h3>
-
-          <details open>
-            <summary>TanStack Table — basic table</summary>
-            <div className="example">
-              <div className="example-meta">
-                <Link href="https://tanstack.com/table/latest/docs/guide/introduction" target="_blank">Docs</Link>
-                <Link href="https://stackblitz.com/github/TanStack/table/tree/main/examples/react/basic?file=src%2Fmain.tsx" target="_blank">Live example</Link>
-              </div>
-              <CodeBlock code={codeTanstack} id="code-ts" />
-            </div>
-          </details>
-
-          <details>
-            <summary>MUI Data Grid — basic</summary>
-            <div className="example">
-              <div className="example-meta">
-                <Link href="https://mui.com/x/react-data-grid/" target="_blank">Docs</Link>
-                <Link href="https://mui.com/x/react-data-grid/getting-started/" target="_blank">Getting started</Link>
-              </div>
-              <CodeBlock code={codeMui} id="code-mui" />
-            </div>
-          </details>
-
-          <details>
-            <summary>Material React Table — basic</summary>
-            <div className="example">
-              <div className="example-meta">
-                <Link href="https://www.material-react-table.com/" target="_blank">Docs</Link>
-                <Link href="https://www.material-react-table.com/docs/examples/basic" target="_blank">Basic example</Link>
-              </div>
-              <CodeBlock code={codeMrt} id="code-mrt" />
-            </div>
-          </details>
-        </section>
+        
 
         <section id="notes" className="notes">
           <h3>Notes and scope</h3>
