@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Table Libraries — Visual Comparison & Examples</title>
+    <meta name="description" content="Visual feature comparison and implementation examples for TanStack Table, MUI Data Grid, and Material React Table." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1>Data Table Libraries</h1>
+        <nav class="nav">
+          <a href="#comparison">Comparison</a>
+          <a href="#examples">Examples</a>
+          <a href="#notes">Notes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h2>Visual comparison and example implementations</h2>
+        <p>
+          This page compares three popular React data grid/table options and shows minimal example setups:
+          <a href="https://tanstack.com/table/latest" target="_blank" rel="noopener">TanStack Table</a>,
+          <a href="https://mui.com/x/react-data-grid/" target="_blank" rel="noopener">MUI Data Grid</a>, and
+          <a href="https://www.material-react-table.com/" target="_blank" rel="noopener">Material React Table</a>.
+        </p>
+      </section>
+
+      <section id="comparison" class="comparison">
+        <h3>Feature comparison</h3>
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>TanStack Table</th>
+                <th>MUI Data Grid</th>
+                <th>Material React Table</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="feat">Library type</td>
+                <td>Headless table utilities</td>
+                <td>Full-featured UI data grid</td>
+                <td>UI table built on TanStack + MUI</td>
+              </tr>
+              <tr>
+                <td class="feat">Framework support</td>
+                <td>React, Vue, Svelte, more</td>
+                <td>React only</td>
+                <td>React only</td>
+              </tr>
+              <tr>
+                <td class="feat">Sorting</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <td class="feat">Filtering</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <td class="feat">Pagination</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <td class="feat">Virtualization</td>
+                <td class="maybe">Via react-virtual</td>
+                <td class="yes">Built-in</td>
+                <td class="maybe">Via virtualization options</td>
+              </tr>
+              <tr>
+                <td class="feat">Row selection</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <td class="feat">Row editing</td>
+                <td class="maybe">Custom/render</td>
+                <td class="yes">Yes (Pro/Premium)</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <td class="feat">Row/Column pinning</td>
+                <td class="maybe">Custom via plugins</td>
+                <td class="maybe">Pro only</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <td class="feat">Tree/Grouping</td>
+                <td class="maybe">Custom code / grouping</td>
+                <td class="maybe">Premium only (tree/aggregation)</td>
+                <td class="yes">Grouping/Expanding</td>
+              </tr>
+              <tr>
+                <td class="feat">Server-side mode</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <td class="feat">Accessibility</td>
+                <td class="yes">WCAG-friendly (depends on UI)</td>
+                <td class="yes">ARIA/WCAG</td>
+                <td class="yes">ARIA/WCAG (MUI based)</td>
+              </tr>
+              <tr>
+                <td class="feat">TypeScript</td>
+                <td class="yes">First-class</td>
+                <td class="yes">First-class</td>
+                <td class="yes">First-class</td>
+              </tr>
+              <tr>
+                <td class="feat">Built-in styling/theming</td>
+                <td>Bring your own UI</td>
+                <td>MUI theme system</td>
+                <td>MUI theme system</td>
+              </tr>
+              <tr>
+                <td class="feat">Excel export</td>
+                <td class="maybe">3rd-party</td>
+                <td class="maybe">Premium only</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <td class="feat">License</td>
+                <td>MIT</td>
+                <td>MIT (Data Grid), commercial for Pro/Premium</td>
+                <td>MIT</td>
+              </tr>
+              <tr>
+                <td class="feat">When to use</td>
+                <td>Max control, custom design systems</td>
+                <td>Out-of-the-box enterprise grid</td>
+                <td>Material UI apps needing rich table</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note small">Notes: Specific features can vary by version. Some advanced features in MUI Data Grid require Pro or Premium licenses. Material React Table builds on TanStack Table with MUI components.</p>
+      </section>
+
+      <section id="examples" class="examples">
+        <h3>Example implementations (React)</h3>
+
+        <details open>
+          <summary>TanStack Table — basic table</summary>
+          <div class="example">
+            <div class="example-meta">
+              <a href="https://tanstack.com/table/latest/docs/guide/introduction" target="_blank" rel="noopener">Docs</a>
+              <a href="https://stackblitz.com/github/TanStack/table/tree/main/examples/react/basic?file=src%2Fmain.tsx" target="_blank" rel="noopener">Live example</a>
+            </div>
+            <pre class="code"><button class="copy" data-target="code-ts">Copy</button><code id="code-ts">// App.tsx
+import React from 'react'
+import { useReactTable, getCoreRowModel, flexRender, createColumnHelper } from '@tanstack/react-table'
+
+type Person = { firstName: string; lastName: string; age: number }
+
+const columnHelper = createColumnHelper&lt;Person&gt;()
+
+const columns = [
+  columnHelper.accessor('firstName', { header: 'First Name' }),
+  columnHelper.accessor('lastName', { header: 'Last Name' }),
+  columnHelper.accessor('age', { header: 'Age' }),
+]
+
+const data: Person[] = [
+  { firstName: 'Jane', lastName: 'Doe', age: 28 },
+  { firstName: 'John', lastName: 'Smith', age: 34 },
+]
+
+export default function App() {
+  const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel() })
+
+  return (
+    &lt;table&gt;
+      &lt;thead&gt;
+        {table.getHeaderGroups().map(hg =&gt; (
+          &lt;tr key={hg.id}&gt;
+            {hg.headers.map(header =&gt; (
+              &lt;th key={header.id}&gt;
+                {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+              &lt;/th&gt;
+            ))}
+          &lt;/tr&gt;
+        ))}
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {table.getRowModel().rows.map(row =&gt; (
+          &lt;tr key={row.id}&gt;
+            {row.getVisibleCells().map(cell =&gt; (
+              &lt;td key={cell.id}&gt;{flexRender(cell.column.columnDef.cell, cell.getContext())}&lt;/td&gt;
+            ))}
+          &lt;/tr&gt;
+        ))}
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  )
+}
+</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>MUI Data Grid — basic</summary>
+          <div class="example">
+            <div class="example-meta">
+              <a href="https://mui.com/x/react-data-grid/" target="_blank" rel="noopener">Docs</a>
+              <a href="https://mui.com/x/react-data-grid/getting-started/" target="_blank" rel="noopener">Getting started</a>
+            </div>
+            <pre class="code"><button class="copy" data-target="code-mui">Copy</button><code id="code-mui">// App.tsx
+import * as React from 'react'
+import { DataGrid, GridColDef } from '@mui/x-data-grid'
+
+const columns: GridColDef[] = [
+  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'firstName', headerName: 'First name', flex: 1 },
+  { field: 'lastName', headerName: 'Last name', flex: 1 },
+  { field: 'age', headerName: 'Age', type: 'number', width: 120 },
+]
+
+const rows = [
+  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+]
+
+export default function App() {
+  return (
+    &lt;div style={{ height: 400 }}&gt;
+      &lt;DataGrid rows={rows} columns={columns} pageSizeOptions={[5, 10]} /&gt;
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>Material React Table — basic</summary>
+          <div class="example">
+            <div class="example-meta">
+              <a href="https://www.material-react-table.com/" target="_blank" rel="noopener">Docs</a>
+              <a href="https://www.material-react-table.com/docs/examples/basic" target="_blank" rel="noopener">Basic example</a>
+            </div>
+            <pre class="code"><button class="copy" data-target="code-mrt">Copy</button><code id="code-mrt">// App.tsx
+import React from 'react'
+import { MaterialReactTable, MRT_ColumnDef } from 'material-react-table'
+
+type Person = { firstName: string; lastName: string; age: number }
+
+const columns: MRT_ColumnDef&lt;Person&gt;[] = [
+  { accessorKey: 'firstName', header: 'First Name' },
+  { accessorKey: 'lastName', header: 'Last Name' },
+  { accessorKey: 'age', header: 'Age' },
+]
+
+const data: Person[] = [
+  { firstName: 'Jane', lastName: 'Doe', age: 28 },
+  { firstName: 'John', lastName: 'Smith', age: 34 },
+]
+
+export default function App() {
+  return &lt;MaterialReactTable columns={columns} data={data} /&gt;
+}
+</code></pre>
+          </div>
+        </details>
+      </section>
+
+      <section id="notes" class="notes">
+        <h3>Notes and scope</h3>
+        <ul>
+          <li>Examples are simplified and meant to show basic setup, not full feature breadth.</li>
+          <li>Feature availability can change by version; check the official docs for the latest as of your stack.</li>
+          <li>MUI Data Grid advanced features like row editing, aggregation, and tree data may require Pro or Premium.</li>
+          <li>TanStack Table is headless: you render your own markup and styling for full control.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Updated: Oct 14, 2025 • Built for quick research and side-by-side comparison.</p>
+      </div>
+    </footer>
+
+    <script src="./scripts.js"></script>
+  </body>
+  </html>
