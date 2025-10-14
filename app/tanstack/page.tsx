@@ -6,6 +6,7 @@ import {
   flexRender,
   createColumnHelper,
 } from '@tanstack/react-table'
+import Link from 'next/link'
 
 type Person = { firstName: string; lastName: string; age: number }
 
@@ -27,8 +28,14 @@ export default function TanstackPage() {
 
   return (
     <main className="container" style={{ padding: '2rem 0' }}>
-      <h2>TanStack Table — Basic</h2>
-      <table className="comparison-table" style={{ maxWidth: 900 }}>
+      <nav className="page-nav">
+        <Link href="/mrt">← Material React Table</Link>
+        <span>TanStack Table</span>
+        <Link href="/mui">MUI Data Grid →</Link>
+      </nav>
+      <h2>TanStack Table — Basic Implementation</h2>
+      <p>This example shows a basic TanStack Table with custom styling. TanStack Table is headless, giving you full control over the UI.</p>
+      <table className="comparison-table" style={{ maxWidth: 1100 }}>
         <thead>
           {table.getHeaderGroups().map((hg) => (
             <tr key={hg.id}>

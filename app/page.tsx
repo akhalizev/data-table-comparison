@@ -99,18 +99,6 @@ export default function App() {
 export default function Page() {
   return (
     <>
-      <header className="site-header">
-        <div className="container header-inner">
-          <h1>Data Table Libraries</h1>
-          <nav className="nav">
-            <a href="#comparison">Comparison</a>
-            <Link href="/mui">MUI</Link>
-            <Link href="/tanstack">TanStack</Link>
-            <Link href="/mrt">MRT</Link>
-            <a href="#notes">Notes</a>
-          </nav>
-        </div>
-      </header>
       <main className="container">
         <section className="hero">
           <h2>Visual comparison and example implementations</h2>
